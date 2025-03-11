@@ -80,7 +80,10 @@ int main() {
     param.sched_priority = 80;
     
     // Create real-time thread on core 1
-    evl_attach_self("main-thread");
+    efd = evl_attach_self("main-thread");
+    if (efd < 0) {
+        evl_printf("error attaching thread: %s\n", strerror(-efd));
+    }
     evl_create_thread(&rt_thread, SCHED_FIFO, param.sched_priority, "rt-thread", periodic_task, NULL);
 
     // Wait for real-time thread to complete
