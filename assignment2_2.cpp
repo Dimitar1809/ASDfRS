@@ -87,14 +87,14 @@ int main() {
     pthread_join(rt_thread, NULL);
 
     // Print execution times and jitter
-    printf("Execution times (ns):\n");
+    evl_printf("Execution times (ns):\n");
     for (int i = 0; i < NUM_SAMPLES; i++) {
-        printf("%ld\n", execution_times[i]);
+        evl_printf("%ld\n", execution_times[i]);
     }
 
-    printf("\nJitter (ns):\n");
+    evl_printf("\nJitter (ns):\n");
     for (int i = 0; i < NUM_SAMPLES; i++) {
-        printf("%ld\n", jitter[i]);
+        evl_printf("%ld\n", jitter[i]);
     }
 
     return 0;
